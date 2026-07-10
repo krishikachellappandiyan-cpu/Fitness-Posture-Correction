@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css">
+    <style>
+        /* General styling for the body and page layout */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Header with logo */
+        .navbar {
+            background-color: #ADD8E6; /* Light blue header */
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .navbar .logo-image img {
+            max-height: 50px;
+            margin-right: 20px;
+        }
+
+        .navbar a {
+            color: #333; /* Dark text for contrast on light blue */
+            font-size: 18px;
+            text-decoration: none;
+            margin-right: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ffd700;
+            transform: scale(1.1);
+        }
+
+        /* Dropdown styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown menu styling */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Styling for iframe */
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+            margin-top: 20px;
+        }
+
+        /* Style for the button container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .button-container a {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .button-container a:active {
+            background-color: #004085;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <a class="navbar-brand" href="/">
+            <div class="logo-image">
+                <img src="/static/images/11.JPG" alt="Logo">
+            </div>
+        </a>
+        <div class="dropdown">
+            <a href="#">Menu</a>
+            <div class="dropdown-content">
+                <a href="#" onclick="setURL('http://localhost:8501/?p=reg')">REGISTER</a>
+                <a href="#" onclick="setURL('http://localhost:8501/?p=Login')">LOGIN</a>
+                <a href="#" onclick="setURL('http://localhost:8501/?p=admin')">ADMIN</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="button-container">
+        <a href="#" onclick="setURL('http://localhost:8501/?p=reg')">Register</a>
+        <a href="#" onclick="setURL('http://localhost:8501/?p=Login')">Login</a>
+        <a href="#" onclick="setURL('http://localhost:8501/?p=admin')">Admin</a>
+        <a href="#" onclick="setURL('http://localhost:8501/?p=pdff')">Report</a>
+        <a href="#" onclick="setURL('http://localhost:8501/?p=dash')">Graph</a>
+        <a href="#" onclick="setURL('http://localhost:8501/?p=dashb')">Dashboard</a>
+
+
+
+    </div>
+
+    <iframe src="http://localhost:8501/?p=home" id="streamlit_content" allowfullscreen>
+        Your browser doesn't support iframes.
+    </iframe>
+
+    <script>
+        function setURL(url) {
+            document.getElementById('streamlit_content').src = url;
+            console.log('URL set to: ' + url);
+        }
+    </script>
+</body>
+
+</html>
+
+
+           /* <a href="#" onclick="setURL('http://localhost:8501/?p=admin')">Admin</a>
+            <a href="#" onclick="setURL('http://localhost:8501/?p=pdff')">Report</a>
+            <a href="#" onclick="setURL('http://localhost:8501/?p=dash')">Graph</a>
+            <a href="#" onclick="setURL('http://localhost:8501/?p=dashb')">Dashboard</a>

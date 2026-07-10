@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Traffic Analysis Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+        .start {
+            background-color: green;
+        }
+        .stop {
+            background-color: red;
+        }
+        .child-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .child {
+            background-color: #e7f3ff; /* Light blue for child container */
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            padding: 15px;
+            flex: 1; /* Allow children to grow equally */
+            margin: 0 10px; /* Space between child containers */
+            text-align: center;
+        }
+        .active-connections {
+            background-color: #007bff; /* Blue color for active connections */
+            font-size: 1.2em;
+            border-radius: 5px;
+            color: white;
+            padding: 10px;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section h2 {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .value {
+            font-size: 1.5em;
+            color: #333;
+        }
+        /* Add styling for the GIF */
+        #loadingGif {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Network Traffic Analysis Dashboard</h1>
+
+    <button class="button start" id="startButton">Start Traffic Analysis</button>
+    <button class="button stop">Stop Traffic Analysis</button>
+
+    <div id="loadingGif">
+        <img src="D:/2025/Project/EPRO/1037_Nandana_Shadow Net/CODE/network_traffic_zigzag.gif" alt="Loading..." />
+    </div>
+
+    <div class="child-container">
+        <div class="child">
+            <h2>Total Traffic (GB)</h2>
+            <div class="value" id="totalTraffic">931 GB</div>
+            </br>
+            <div class="timeFrame">Last 24 Hours</div>
+        </div>
+
+        <div class="child">
+            <h2>Anomalies Detected</h2>
+            <div class="value" id="anomaliesDetected">6 Today</div>
+        </div>
+
+        <div class="child">
+            <h2>Active Connections</h2>
+            <div class="active-connections" id="activeConnectionsButton">605 Current</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Recent Alerts</h2>
+        <div class="value">No recent alerts</div>
+    </div>
+</div>
+
+<script>
+    // Simulate dynamic updates
+    let totalTraffic = 931;
+    let activeConnections = 605;
+    let anomaliesDetected = 6;
+
+    function updateValues() {
+        totalTraffic += Math.floor(Math.random() * 10) + 1; // Increase total traffic
+        activeConnections += Math.floor(Math.random() * 5); // Increase active connections
+        anomaliesDetected += Math.floor(Math.random() * 2); // Increase anomalies
+
+        document.getElementById('totalTraffic').innerText = totalTraffic + ' GB';
+        document.getElementById('activeConnectionsButton').innerText = activeConnections + ' Current';
+        document.getElementById('anomaliesDetected').innerText = anomaliesDetected + ' Today';
+    }
+
+    // Update values every 2 seconds
+    setInterval(updateValues, 2000);
+
+    // Show the GIF when the Start button is clicked
+    document.getElementById('startButton').addEventListener('click', function() {
+        document.getElementById('loadingGif').style.display = 'block';
+        this.disabled = true; // Disable the start button
+    });
+</script>
+
+</body>
+</html>

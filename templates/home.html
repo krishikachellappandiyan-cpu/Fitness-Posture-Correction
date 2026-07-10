@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons in Header with Logo</title>
+    <style>
+        /* Basic styles for the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header container style */
+        header {
+            background-color: #333; /* Dark background for header */
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo style */
+        .logo img {
+            height: 40px; /* Adjust the logo size */
+            width: auto;
+        }
+
+        /* Button container style */
+        .button-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Link styling to look like a button */
+        a {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        /* Link hover effect */
+        a:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
+        /* Link active (when clicked) effect */
+        a:active {
+            transform: translateY(2px);
+        }
+
+        /* Optional: Making buttons responsive */
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with logo and links -->
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="static/images/1.avif" alt="Logo"> <!-- Replace with your logo path -->
+        </div>
+        <div class="button-container">
+
+             <a href="#" onclick="setURL('http://localhost:8501/?p=pdff')">Report</a>
+             <a href="#" onclick="setURL('http://localhost:8501/?p=dash')">Graph</a>
+             <a href="#" onclick="setURL('http://localhost:8501/?p=dashb')">Dashboard</a>
+
+        </div>
+    </header>
+
+    <script>
+        // Set URL function to navigate when a link is clicked
+        function setURL(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
